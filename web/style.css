@@ -5,7 +5,7 @@
     font-family: 'Lato', sans-serif;
 }
 main{
-    width: 80vw;
+    width: 60vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -17,17 +17,19 @@ h1{
 .form{
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 input{
-    width: 60vw;
+    outline: none;
+    width: -webkit-fill-available;
     padding:10px;
     border: 2px solid black;
 }
 button{
+    width:150px;
     padding: 10px 20px;
     background-color: black;
     color: white;
     letter-spacing: 1.5px;
     font-weight: bold;
+    cursor: pointer;
 }
