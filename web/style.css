@@ -33,3 +33,24 @@ button{
     font-weight: bold;
     cursor: pointer;
 }
+
+#tasks{
+    margin-top: 2rem;
+}
+.task{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid;
+}
+.task p{
+    padding: 10px;
+}
+.material-symbols-sharp{
+    padding: 10px;
+    font-size: 20px;
+    background: #000;
+    color: white;
+    cursor: pointer;
+}
