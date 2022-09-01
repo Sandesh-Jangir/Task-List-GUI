@@ -9,10 +9,12 @@ main{
     position: absolute;
     top: 50%;
     left: 50%;
+    height: 80vh;
     transform: translate(-50%, -50%);
 }
 h1{
     margin: 2rem 0;
+    font-size: 3rem;
 }
 .form{
     display: flex;
