@@ -14,8 +14,8 @@
     <main>
         <h1>Today's Tasks...</h1>
         <div class="form">
-            <input type="text">
-            <button class="addTask">Add Task</button>
+            <input type="text" id="task_input">
+            <button onclick="fetch_task()" class="addTask">Add Task</button>
         </div>
 
         <div id="tasks">
@@ -29,6 +29,16 @@
     </main>
 
     <script src="/eel.js"></script>
+
+    <!-- Custom JavaScript -->
+
+    <script>
+        let fetch_task = ()=>{
+            let input = document.getElementById("task_input");
+            let task = input.value;
+            console.log(task);
+        }
+    </script>
 </body>
 
 </html>
