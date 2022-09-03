@@ -19,26 +19,44 @@
         </div>
 
         <div id="tasks">
-            <div class="task">
-                <p>SampleTask</p>
-                <span class="material-symbols-sharp">
-                    delete
-                </span>
-            </div>
+            
         </div>
     </main>
 
-    <script src="/eel.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
 
     <!-- Custom JavaScript -->
 
     <script>
         // Fettching And Adding the Tasks
         document.querySelector("button").onclick = function fetch_task(){
-            let task = document.getElementById("task_input").value;
-            console.log(task);
-            eel.addTask(task)();
+            let task_inp = document.getElementById("task_input").value;
+            console.log(task_inp);
+            eel.addTask(task_inp)();
+            let tasks = document.getElementById("tasks")
+            tasks.innerHTML += `<div class="task">
+                <p>${task_inp}</p>
+                <span class="material-symbols-sharp">
+                    delete
+                </span>
+            </div>`
         }
+
+        let get_tasks = async () => {
+            let documents = await eel.fetchDocuments()();
+            for (let i = 0; i < documents.length; i++) {
+                const task = documents[i];
+                let tasks = document.getElementById("tasks")
+                tasks.innerHTML += `<div class="task">
+                <p>${task['Task']}</p>
+                <span class="material-symbols-sharp">
+                    delete
+                </span>
+            </div>`
+            }
+            // console.log(documents)
+        }
+        get_tasks();
     </script>
 </body>
 

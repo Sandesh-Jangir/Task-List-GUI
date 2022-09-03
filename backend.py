@@ -1,7 +1,6 @@
 import eel
 import pymongo
 
-eel.init('web')
 
 client = pymongo.MongoClient('mongodb://localhost:27017')
 database = client['TaskList']
@@ -13,5 +12,14 @@ def addTask(s):
     }
     collection.insert_one(task)
 
+@eel.expose
+def fetchDocuments():
+    documents = collection.find({})
+    task_arr = []
+    for document in documents:
+        task_arr.append(document)
+    return task_arr
+
+eel.init('web')
 
 eel.start("index.html")
