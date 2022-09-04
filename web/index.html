@@ -36,7 +36,7 @@
             let tasks = document.getElementById("tasks")
             tasks.innerHTML += `<div class="task">
                 <p>${task_inp}</p>
-                <a href="#" onclick="delete_task(${task_inp})">
+                <a href="#" onclick="delete_task('${task_inp}')">
                 <span class="material-symbols-sharp">
                     delete
                 </span>
@@ -63,6 +63,9 @@
 
         const delete_task = (tname)=>{
             eel.delete(tname)();
+            let tasks = document.getElementById("tasks")
+            tasks.innerHTML = "";
+            get_tasks();
         }
         get_tasks();
     </script>
