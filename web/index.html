@@ -36,9 +36,11 @@
             let tasks = document.getElementById("tasks")
             tasks.innerHTML += `<div class="task">
                 <p>${task_inp}</p>
+                <a href="#" onclick="delete_task(${task_inp})">
                 <span class="material-symbols-sharp">
                     delete
                 </span>
+                </a>
             </div>`
         }
 
@@ -49,12 +51,18 @@
                 let tasks = document.getElementById("tasks")
                 tasks.innerHTML += `<div class="task">
                 <p>${task['Task']}</p>
+                <a href="#" onclick="delete_task('${task['Task']}')">
                 <span class="material-symbols-sharp">
                     delete
                 </span>
+                </a>
             </div>`
             }
             // console.log(documents)
+        }
+
+        const delete_task = (tname)=>{
+            eel.delete(tname)();
         }
         get_tasks();
     </script>

@@ -20,6 +20,10 @@ def fetchDocuments():
         task_arr.append(document)
     return task_arr
 
+@eel.expose
+def delete(tname):
+    collection.delete_one({"Task":tname})
+
 eel.init('web')
 
 eel.start("index.html")
