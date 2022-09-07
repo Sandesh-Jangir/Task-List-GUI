@@ -31,19 +31,38 @@
         // Fettching And Adding the Tasks
         document.querySelector("button").onclick = function fetch_task(){
             let task_inp = document.getElementById("task_input").value;
-            console.log(task_inp);
-            eel.addTask(task_inp)();
-            let tasks = document.getElementById("tasks")
-            tasks.innerHTML += `<div class="task">
-                <p>${task_inp}</p>
-                <a href="#" onclick="delete_task('${task_inp}')">
-                <span class="material-symbols-sharp">
-                    delete
-                </span>
-                </a>
-            </div>`
-        }
 
+            let permission = false
+            let task_chars = Array.from(task_inp);
+
+            for (let i = 0; i < task_chars.length; i++) {
+                if (task_chars[i] != "'" && task_chars[i] != '"'){
+                    permission = true
+                }
+                else{
+                    permission = false
+                    break;
+                }
+                
+            }
+            if (permission == true){
+
+                eel.addTask(task_inp)();
+                let tasks = document.getElementById("tasks")
+                tasks.innerHTML += `<div class="task">
+                    <p>${task_inp}</p>
+                    <a href="#" onclick="delete_task('${task_inp}')">
+                    <span class="material-symbols-sharp">
+                        delete
+                    </span>
+                    </a>
+                    </div>`
+            }
+            else{
+                alert("Quotes are not allowed.")
+            }
+                
+        }
         let get_tasks = async () => {
             let documents = await eel.fetchDocuments()();
             for (let i = 0; i < documents.length; i++) {
