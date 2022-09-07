@@ -57,3 +57,16 @@ button{
     color: white;
     cursor: pointer;
 }
+
+#qoute_error{
+    background-color: rgba(255, 0, 0, 0.35);
+    color: red;
+    height:4rem;
+    display: none;
+    justify-content: space-between;
+    border-left: 3px solid red;
+    padding: 0px 20px;
+    align-items: center;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+}

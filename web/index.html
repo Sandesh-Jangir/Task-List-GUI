@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <div id="qoute_error">
+        <p>Quotations are not allowed !</p>
+        <a onclick="remove_error()" style="cursor: pointer;">&times;</a>
+    </div>
     <main>
         <h1>Today's Tasks...</h1>
         <div class="form">
@@ -18,9 +22,7 @@
             <button class="addTask">Add Task</button>
         </div>
 
-        <div id="tasks">
-            
-        </div>
+        <div id="tasks"></div>
     </main>
 
     <script type="text/javascript" src="/eel.js"></script>
@@ -59,7 +61,7 @@
                     </div>`
             }
             else{
-                alert("Quotes are not allowed.")
+                document.getElementById("qoute_error").style.display = "flex";
             }
                 
         }
@@ -85,6 +87,10 @@
             let tasks = document.getElementById("tasks")
             tasks.innerHTML = "";
             get_tasks();
+        }
+
+        const remove_error = () => {
+            document.getElementById("qoute_error").style.display = "none";
         }
         get_tasks();
     </script>
